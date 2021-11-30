@@ -1,4 +1,4 @@
-class Day01 {
+class Day00 {
 
     fun part1(input: List<String>): Int {
         return input.size
@@ -15,6 +15,6 @@ class Day01 {
 
         val input = readInput("Day01")
         println(part1(input))
-//        println(part2(input))
+        println(part2(input))
     }
 }
