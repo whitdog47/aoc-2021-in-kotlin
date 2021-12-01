@@ -18,7 +18,7 @@ class Day01 {
     }
 
     private fun part2(input: List<Int>): Int {
-        return part1(input.windowed(3, 1).map{ it.sum() })
+        return part1(input.windowed(3){it.sum()})
     }
 
     fun run() {
