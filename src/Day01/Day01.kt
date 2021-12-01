@@ -21,10 +21,6 @@ class Day01 {
         return part1(input.windowed(3, 1).map{ it.sum() })
     }
 
-    private fun getInputWindow(input: List<Int>, i: Int) : Int {
-        return input[i] + input[i+1] + input[i+2]
-    }
-
     fun run() {
         val testInput = readTestInputAsInt("Day01")
         check(part1(testInput) == 7)
