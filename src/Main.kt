@@ -1,4 +1,6 @@
-fun main(args: Array<String>) {
+import Day01.*
+
+fun main() {
     val d = Day01()
     d.run()
 }
