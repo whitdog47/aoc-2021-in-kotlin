@@ -6,15 +6,7 @@ import readTestInputAsInt
 class Day01 {
 
     private fun part1(input: List<Int>): Int {
-        var count = 0
-        var prev = input[0]
-        input.forEach {
-            if (it > prev) {
-                count++
-            }
-            prev = it
-        }
-        return count
+        return input.windowed(2).count{(a,b) -> b>a}
     }
 
     private fun part2(input: List<Int>): Int {
