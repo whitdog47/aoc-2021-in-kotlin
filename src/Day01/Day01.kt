@@ -18,15 +18,7 @@ class Day01 {
     }
 
     private fun part2(input: List<Int>): Int {
-        var count = 0
-        input.forEachIndexed { i, s ->
-            if (i < input.size - 3) {
-                val sum = getInputWindow(input, i)
-                val next = getInputWindow(input, i+1)
-                if (next > sum) count++
-            }
-        }
-        return count
+        return part1(input.windowed(3, 1).map{ it.sum() })
     }
 
     private fun getInputWindow(input: List<Int>, i: Int) : Int {
