@@ -1,47 +1,43 @@
 package Day02
 
-import readInput
-import readTestInput
+import readInputStringToInt
+import readTestInputStringToInt
 
 class Day02 {
 
-    private fun part1(input: List<String>): Int {
+    private fun part1(input: List<Pair<String, Int>>): Int {
         var h = 0
         var d = 0
         input.forEach {
-            val part = it.split(" ")
-            val x = part[1].toInt()
-            when (part[0]) {
-                "forward" -> h += x
-                "down" -> d += x
-                "up" -> d -= x
+            when (it.first) {
+                "forward" -> h += it.second
+                "down" -> d += it.second
+                "up" -> d -= it.second
             }
         }
         return h * d
     }
 
-    private fun part2(input: List<String>): Int {
+    private fun part2(input: List<Pair<String, Int>>): Int {
         var h = 0
         var d = 0
         var aim = 0
         input.forEach {
-            val part = it.split(" ")
-            val x = part[1].toInt()
-            when (part[0]) {
+            when (it.first) {
                 "forward" ->{
-                    h += x
-                    d += aim * x
+                    h += it.second
+                    d += aim * it.second
                 }
-                "down" -> aim += x
-                "up" -> aim -= x
+                "down" -> aim += it.second
+                "up" -> aim -= it.second
             }
         }
         return h * d
     }
 
     fun run() {
-        val testInput = readTestInput("Day02")
-        val input = readInput("Day02")
+        val testInput = readTestInputStringToInt("Day02")
+        val input = readInputStringToInt("Day02")
         check(part1(testInput) == 150)
         println(part1(input))
 
