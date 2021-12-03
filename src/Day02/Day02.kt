@@ -39,6 +39,7 @@ class Day02 {
         val testInput = readTestInputStringToInt("Day02")
         val input = readInputStringToInt("Day02")
         check(part1(testInput) == 150)
+        println(testInput)
         println(part1(input))
 
         check(part2(testInput) == 900)
