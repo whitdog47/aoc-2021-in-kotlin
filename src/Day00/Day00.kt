@@ -17,7 +17,7 @@ class Day00 {
         val testInput = readTestInput("Day00")
         val input = readInput("Day00")
         check(part1(testInput) == 1)
-        println(part1(input))
+        //println(part1(input))
 
         //check(part2(testInput) == 1)
         //println(part2(input))
