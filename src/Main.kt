@@ -1,6 +1,6 @@
-import Day07.*
+import Day08.*
 
 fun main() {
-    val d = Day07()
+    val d = Day08()
     d.run()
 }

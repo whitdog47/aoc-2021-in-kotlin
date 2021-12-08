@@ -29,3 +29,6 @@ fun readTestInputStringToIntToInt(name: String) = fileToTripleStringIntInt(name,
  * Converts string to md5 hash.
  */
 fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray())).toString(16)
+fun manDistance(x1:Int, y1:Int, x2:Int, y2:Int) : Int {
+    return  kotlin.math.abs(x1 - x2) + kotlin.math.abs(y1 - y2)
+}
