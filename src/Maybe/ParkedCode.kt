@@ -1,4 +1,4 @@
-package Day00
+package Maybe
 
 class ParkedCode {
     //    private fun part0(input: List<String>): Int {
