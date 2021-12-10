@@ -80,34 +80,34 @@ class Day09 {
         return product
     }
 
-    private fun doSomeWork(
-        currentLocation: Pair<Int, Int>,
-        matrix: Array<Array<Int>>,
-        visited: Array<Array<Boolean>>,
-        maxRow: Int,
-        maxCol: Int
-    ): Int {
-        val row = currentLocation.first
-        val col = currentLocation.second
-        if (visited[row][col]) return 0
-        val cur = matrix[row][col]
-        if (cur == 9) return 0
-        visited[row][col] =true
-        var size = 1
-        if (row > 0 && matrix[row - 1][col] > cur) {
-            size += doSomeWork(Pair(row-1, col), matrix, visited, maxRow, maxCol)
-        }
-        if (row < maxRow && matrix[row+1][col] > cur) {
-            size += doSomeWork(Pair(row+1, col), matrix, visited, maxRow, maxCol)
-        }
-        if (col > 0 && matrix[row][col-1] > cur) {
-            size += doSomeWork(Pair(row, col-1), matrix, visited, maxRow, maxCol)
-        }
-        if (col < maxCol && matrix[row][col+1] > cur) {
-            size += doSomeWork(Pair(row, col+1), matrix, visited, maxRow, maxCol)
-        }
-        return size
+private fun doSomeWork(
+    currentLocation: Pair<Int, Int>,
+    matrix: Array<Array<Int>>,
+    visited: Array<Array<Boolean>>,
+    maxRow: Int,
+    maxCol: Int
+): Int {
+    val row = currentLocation.first
+    val col = currentLocation.second
+    if (visited[row][col]) return 0
+    val cur = matrix[row][col]
+    if (cur == 9) return 0
+    visited[row][col] =true
+    var size = 1
+    if (row > 0 && matrix[row - 1][col] > cur) {
+        size += doSomeWork(Pair(row-1, col), matrix, visited, maxRow, maxCol)
     }
+    if (row < maxRow && matrix[row+1][col] > cur) {
+        size += doSomeWork(Pair(row+1, col), matrix, visited, maxRow, maxCol)
+    }
+    if (col > 0 && matrix[row][col-1] > cur) {
+        size += doSomeWork(Pair(row, col-1), matrix, visited, maxRow, maxCol)
+    }
+    if (col < maxCol && matrix[row][col+1] > cur) {
+        size += doSomeWork(Pair(row, col+1), matrix, visited, maxRow, maxCol)
+    }
+    return size
+}
 
 
     fun run() {
