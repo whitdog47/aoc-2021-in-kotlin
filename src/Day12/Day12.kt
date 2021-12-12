@@ -10,6 +10,7 @@ class Day12 {
 
     private fun part1(input: List<String>): Int {
         nodes.clear()
+        paths.clear()
         input.forEach {
             val s = it.split("-")
             nodes.add(Pair(s[0], s[1]))
@@ -17,9 +18,9 @@ class Day12 {
         total = 0
         nodes.forEach {
             if (it.first == "start") {
-                findPathStarting(it.second,listOf("start"), listOf("start",it.second) )
+                findPathStarting(it.second, listOf(), listOf("start"))
             } else if (it.second == "start") {
-                findPathStarting(it.first, listOf("start"), listOf("start",it.first))
+                findPathStarting(it.first, listOf(), listOf("start"))
 
             }
         }
@@ -64,6 +65,7 @@ class Day12 {
 
     private fun part2(input: List<String>): Int {
         nodes.clear()
+        paths.clear()
         input.forEach {
             val s = it.split("-")
             nodes.add(Pair(s[0], s[1]))
@@ -81,9 +83,8 @@ class Day12 {
         return total
     }
 
-    fun noRepeatsOnPath(path: List<String>): Boolean {
-        return path.filter { it.lowercase() == it }.groupingBy { it }.eachCount().filter { it.value > 1 }.isEmpty()
-    }
+    private fun noRepeatsOnPath(path: List<String>) =
+        path.filter { it.lowercase() == it }.groupingBy { it }.eachCount().filter { it.value > 1 }.isEmpty()
 
     private fun findPathStarting2(match: String, currentVisited: List<String>, currentPath: List<String>) {
         if (match == "start") return
