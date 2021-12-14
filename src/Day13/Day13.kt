@@ -67,7 +67,7 @@ class Day13 {
 
         val m = Array(maxX+1) {Array(maxY+1) {" "} }
         pairs.forEach {
-            m[it.first][it.second] = "#"
+            m[it.first][it.second] = "█"
         }
         for (y in 0..maxY) {
             for (x in 0..maxX) {
