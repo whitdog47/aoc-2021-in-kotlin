@@ -75,31 +75,21 @@ class Day14 {
             counts[poly[i]] = (counts[poly[i]] ?: 0) + 1
         }
         repeat(40) {
-            val pp = pairs.toMutableMap()
+            val newPairs = pairs.toMutableMap()
             rules.forEach { rule ->
                 pairs.forEach { pair ->
                     if (pair.value > 0 && rule.first == pair.key) {
-                        pp[pair.key] = (pp[pair.key] ?: 0) - pair.value
-                        pp[pair.key[0] + rule.second] = (pp[pair.key[0] + rule.second] ?: 0) + pair.value
-                        pp[rule.second + pair.key[1]] = (pp[rule.second + pair.key[1]] ?: 0) + pair.value
+                        newPairs[pair.key] = (newPairs[pair.key] ?: 0) - pair.value
+                        newPairs[pair.key[0] + rule.second] = (newPairs[pair.key[0] + rule.second] ?: 0) + pair.value
+                        newPairs[rule.second + pair.key[1]] = (newPairs[rule.second + pair.key[1]] ?: 0) + pair.value
                         counts[rule.second[0]] = (counts[rule.second[0]] ?: 0) + pair.value
                     }
                 }
             }
-            pairs = pp.toMutableMap()
+            pairs = newPairs.toMutableMap()
         }
-        var min = Long.MAX_VALUE
-        var max = 0L
-        counts.forEach {
-            val v = it.value
-            if (v < min) {
-                min = v
-            }
-            if (v > max) {
-                max = v
-            }
-        }
-        return max - min
+        val sorted = counts.values.sorted()
+        return sorted.last() - sorted.first()
     }
 
     fun run() {
