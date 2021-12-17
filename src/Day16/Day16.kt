@@ -22,7 +22,7 @@ class Day16 {
 
     var values = Stack<Long>()
     private fun processPacket(binary: String, p: Int): Int {
-        if (p > binary.length - 1) return p
+        if (p > binary.length - 6) return p + 6
 
         var pos = p
         val version = (binary.substring(pos, pos + 3)).toInt(2)
